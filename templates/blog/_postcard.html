@@ -1,0 +1,17 @@
+<div class="postcard">
+<div class="postcard-header">
+<div class="postcard-title">
+<a href="{% url 'post' slug=post.slug %}">
+    <h2 id="post{{ post.id }}">{{ post.title }}</h2>
+</a>
+</div>
+<div class="postcard-intro">
+        By
+        <a href="{% url 'user' username=post.author.username %}">
+            {{ post.author.get_full_name }}
+        </a>
+        {{ post.published_date|timesince }}
+    </div>
+</div>
+    <p>{{post.body|striptags|truncatechars:100}}</p>    
+</div>

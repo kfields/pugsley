@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load avatar_tags %}
+
+{% block content %}
+{% if user == current_user %}
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a class="btn btn-secondary" href="{% url 'edit_profile' %}">{{ _('Edit your profile') }}</a>
+    <a class="btn btn-secondary" href="{% url 'auth.logout' %}">{{ _('Logout') }}</a>
+    <a href="{% url 'avatar_change' %}">Change your avatar</a>
+</div>
+{% endif %}
+
+    <div>
+        {% avatar user 65 %}
+    <div class="postcard-intro">
+        <h1>{{ user.get_full_name }}</h1>
+    </div>
+    </div>
+
+    {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+    <h2>Posts</h2>
+    <div class="list-group">
+        {% for post in posts %}
+            {% include 'blog/_post_item.html' %}
+        {% endfor %}
+    </div>
+{% endblock %}

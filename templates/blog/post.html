@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="postcard-header">
+    <div class="postcard-title">
+        <h2>{{ post.title }}</h2>
+    </div>
+
+    <div class="postcard-intro">
+        <a href="{% url 'user' username=post.author.username %}">
+            {{ post.author.get_full_name }}
+        </a>
+        {{ post.published_date|timesince }}
+    </div>
+</div>
+
+{{ post.body }}
+
+{% endblock %}

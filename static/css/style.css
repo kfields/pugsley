@@ -1,0 +1,150 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    flex: 1 0 auto;
+}
+
+.site-footer {
+    flex-shrink: 0;
+}
+
+body {
+    /*font-size: calc(18px + .25vw);*/
+    background-color: #eeeeee;
+}
+
+a {
+    text-decoration: none !important;
+    padding: 10px 0;
+    color: black;
+}
+
+a:hover {
+    /* color: #222222; */
+    color: #fab526 !important;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    /*margin-block-end: 0.83em;*/
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h3 {
+    display: block;
+    font-size: 1.2em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.site-header {
+    background: url(/static/img/site-header.jpg) no-repeat scroll top;
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 100%;
+}
+
+.paper {
+    background-color: white;
+}
+
+.site-main {
+    min-height: 400px;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 0 25px rgba(0, 0, 0, .17);
+}
+
+@media (min-width: 992px) {
+    .site-header {
+        padding-bottom: 300px;
+    }
+    .site-main {
+        margin-top: -70px;
+    }
+    .rightbar {
+        margin: 1em 0em 1em 1em;
+    }
+}
+
+footer {
+    border-top: 1px solid #cccccc;
+    padding: 1em;
+    color: #888888;
+}
+
+.site-footer {
+    color: #ffffff;
+    background-color: #282C2F;
+    text-align: center;
+}
+
+.leftbar {
+    color: #ffffff;
+    background-color: #282C2F;
+    height: 100%;
+}
+
+.leftbar a {
+    color: #ffffff;
+}
+
+.rightbar {
+    color: #000000;
+}
+
+.postcards {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /*display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 5vmin;*/
+}
+
+.postcards .postcard {
+    border-bottom: 1px solid #eeeeee;
+}
+
+.postcards .postcard:last-child {
+    border-bottom: 0px;
+}
+
+.postcard-header {
+    margin-bottom: 1em;
+}
+
+.postcard-intro {
+    color: #727272;
+    display: inline-block;
+    float: none;
+    vertical-align: middle;
+    white-space: initial;
+}
+
+.postcard-intro a {
+    color: #727272;
+}
+
+/*
+.postcard-title {
+}
+*/
+
+.avatar {
+    padding-right: 1em;
+}
