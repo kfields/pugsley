@@ -1,6 +1,6 @@
 # Pugsley
 
-### Installation
+## Installation
 
 1. Navigate to a directory somewhere where you keep your software projects:
 
@@ -27,22 +27,13 @@
         pip install -r requirements.txt
 
 
-### Running the website
+## Running the website
 
 1. Activate the virtual environment, if not already active:
 
         cd pugsley
         source env/bin/activate
         
-2. Launch the Flask application:
+2. Start the Django web server:
 
         $ ./dev
-
-### Modifying the blog database
-        python manage.py makemigrations blog
-        python manage.py migrate blog
-
-### Inspecting the blog database
-        python manage.py shell
-        >>> from blog.models import Post
-        >>> Post.objects.all()
