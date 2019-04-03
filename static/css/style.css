@@ -68,19 +68,27 @@ h3 {
     background-color: white;
     box-shadow: 0 0 25px rgba(0, 0, 0, .17);
 }
+.tagline {
+    color: white;
+    display: none;
+}
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
+    .tagline {
+        display: block !important;
+    }
     .site-header {
         padding-bottom: 300px;
     }
     .site-main {
-        margin-top: -70px;
+        margin-top: -100px;
     }
     .rightbar {
-        margin: 1em 0em 1em 1em;
+        margin: 1em 0em 1em 1em !important;
     }
 }
-
+@media (max-width: 992px) {
+}
 footer {
     border-top: 1px solid #cccccc;
     padding: 1em;
@@ -105,6 +113,7 @@ footer {
 
 .rightbar {
     color: #000000;
+    margin: 1em 0em;
 }
 
 .postcards {

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load wagtailcore_tags %}
 
 {% block content %}
 
@@ -8,13 +9,16 @@
     </div>
 
     <div class="postcard-intro">
-        <a href="{% url 'user' username=post.author.username %}">
-            {{ post.author.get_full_name }}
+        by
+        <a href="{% url 'user' username=post.owner.username %}">
+            {{ post.owner.get_full_name }}
         </a>
-        {{ post.published_date|timesince }}
+        &middot; 
+        {{ post.last_published_at|timesince }}
+        ago
     </div>
 </div>
 
-{{ post.body }}
+{{ post.body|richtext }}
 
 {% endblock %}

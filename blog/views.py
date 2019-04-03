@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from .models import Post
 
 def index(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(last_published_at__lte=timezone.now()).order_by('last_published_at')
     return render(request, 'blog/index.html', {'posts': posts})
 
 def post(request, slug):
@@ -13,5 +13,5 @@ def post(request, slug):
 
 def user(request, username):
     user = get_object_or_404(User, username=username)
-    posts = Post.objects.filter(author=user)
+    posts = Post.objects.filter(owner=user)
     return render(request, 'blog/user.html', {'user': user, 'posts': posts})

@@ -2,7 +2,7 @@
 <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark box-shadow"> -->
   <nav class="navbar navbar-dark navbar-expand-lg">
   <div class="container">
-    <a class="navbar-brand" href="/">PUGSLEY</a>
+    <a class="navbar-brand" href="/"><h2>PUGSLEY</h2></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -18,16 +18,19 @@
         <li class="nav-item">
           <a class="nav-link" href="/contact">Contact</a>
         </li>
-        {% if current_user.is_authenticated %}
+        {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="/user/{{current_user.username}}"><i class="fas fa-user-circle"></i></a>
+          <a class="nav-link" href="/users/{{user.username}}"><i class="fas fa-user-circle"></i></a>
         </li>
         {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="/auth/login"><i class="fas fa-user-circle"></i></a>
+          <a class="nav-link" href="/cms"><i class="fas fa-user-circle"></i></a>
         </li>
         {% endif %}
     </div>
   </div>
 </nav>
+<div class="container tagline">
+  Python User Group Website with Django
+</div>
 </header>

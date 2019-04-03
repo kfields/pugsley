@@ -6,11 +6,13 @@
 </a>
 </div>
 <div class="postcard-intro">
-        By
-        <a href="{% url 'user' username=post.author.username %}">
-            {{ post.author.get_full_name }}
+        by
+        <a href="{% url 'user' username=post.owner.username %}">
+            {{ post.owner.get_full_name }}
         </a>
-        {{ post.published_date|timesince }}
+        &middot;
+        {{ post.last_published_at|timesince }}
+        ago
     </div>
 </div>
     <p>{{post.body|striptags|truncatechars:100}}</p>    
