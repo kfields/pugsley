@@ -19,6 +19,10 @@
   },
   "homepage": "https://github.com/kfields/pugsley#readme",
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-brands-svg-icons": "^5.8.1",
+    "@fortawesome/free-regular-svg-icons": "^5.8.1",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "autoprefixer": "^9.5.0",
     "css-loader": "^2.1.1",
     "exports-loader": "^0.7.0",
