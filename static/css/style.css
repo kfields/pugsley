@@ -66,6 +66,7 @@ h3 {
     min-height: 400px;
     padding: 30px;
     background-color: white;
+    /*border-radius: 5px 5px 5px 5px;*/
     box-shadow: 0 0 25px rgba(0, 0, 0, .17);
 }
 .tagline {

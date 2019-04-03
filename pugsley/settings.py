@@ -50,11 +50,12 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
-
     'modelcluster',
     'taggit',
 
     'avatar',
+    'schedule',
+    
     'blog',
 ]
 

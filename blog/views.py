@@ -7,6 +7,9 @@ def index(request):
     posts = Post.objects.filter(last_published_at__lte=timezone.now()).order_by('last_published_at')
     return render(request, 'blog/index.html', {'posts': posts})
 
+def calendar(request):
+    return render(request, 'blog/calendar.html')
+
 def post(request, slug):
     post = get_object_or_404(Post, slug=slug)
     return render(request, 'blog/post.html', {'post': post})
