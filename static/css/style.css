@@ -74,6 +74,9 @@ h3 {
 }
 
 @media (min-width: 768px) {
+    .navbar-brand {
+        font-size: 2rem;
+    }
     .tagline {
         display: block !important;
     }
@@ -177,7 +180,7 @@ footer {
 }
 
 @keyframes drop{
-	0%		{ top:-350px; display: none; visibility: hidden; opacity: 0;}
-	100%	{ top:0; display:block; visibility: visible; opacity: 1;}
+	0%		{ top:-350px; visibility: hidden; opacity: 0;}
+	100%	{ top:0; visibility: visible; opacity: 1;}
 }
 }
