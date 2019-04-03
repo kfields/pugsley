@@ -87,8 +87,6 @@ h3 {
         margin: 1em 0em 1em 1em !important;
     }
 }
-@media (max-width: 992px) {
-}
 footer {
     border-top: 1px solid #cccccc;
     padding: 1em;
@@ -156,4 +154,30 @@ footer {
 
 .avatar {
     padding-right: 1em;
+}
+
+@media (min-width: 768px) {
+
+.ribbon {
+    opacity: 0;
+    visibility: hidden;
+	background-color: #282C2F;
+	position: absolute;
+	top:-350px;
+	animation:drop forwards .8s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.ribbon:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -50px;
+    border-left: 50px solid #282C2F;
+    border-right: 50px solid #282C2F;
+    border-bottom: 50px solid transparent;
+}
+
+@keyframes drop{
+	0%		{ top:-350px; display: none; visibility: hidden; opacity: 0;}
+	100%	{ top:0; display:block; visibility: visible; opacity: 1;}
+}
 }
