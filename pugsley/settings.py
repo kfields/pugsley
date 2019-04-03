@@ -55,7 +55,8 @@ INSTALLED_APPS = [
 
     'avatar',
     'schedule',
-    
+    'crispy_forms',
+
     'blog',
 ]
 
@@ -149,6 +150,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 WAGTAIL_SITE_NAME = 'Pugsley'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

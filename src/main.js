@@ -1,4 +1,5 @@
 import 'bootstrap';
+
 import './scss/app.scss';
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
 /*

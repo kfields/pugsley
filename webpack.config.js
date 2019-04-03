@@ -5,7 +5,11 @@ const devMode = process.env.NODE_ENV !== 'production';
 module.exports = {
   mode : devMode ? 'development' : 'production',
   // devtool: 'source-map',
-  entry: './src/main.js',
+  context: path.resolve(__dirname, 'src'),
+  entry: {
+    main: './main.js', 
+    calendar: './calendar.js'
+  },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'static/dist')
