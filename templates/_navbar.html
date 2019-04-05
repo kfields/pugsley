@@ -1,42 +1,51 @@
 <header id="masthead" role="banner" class="site-header">
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark box-shadow"> -->
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark box-shadow"> -->
   <nav class="navbar navbar-dark navbar-expand-lg">
-  <div class="container">
-    <a class="navbar-brand" href="/">PUGSLEY</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="container">
+      <a class="navbar-brand" href="/">PUGSLEY</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/blog">Blog</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="/calendar">Calendar</a>
-            </li>      
-        <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contact">Contact</a>
-        </li>
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link" href="/users/{{user.username}}"><i class="fas fa-user-circle"></i></a>
-        </li>
-        {% else %}
-        <li class="nav-item">
-          <a class="nav-link" href="/cms"><i class="fas fa-user-circle"></i></a>
-        </li>
-        {% endif %}
+            <a class="nav-link" href="/calendar">Calendar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-user-circle"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              {% if user.is_authenticated %}
+              <a class="dropdown-item" href="/users/{{user.username}}">Profile</i></a>
+              <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+              {% else %}
+              <a class="dropdown-item" href="{% url 'signup' %}">Sign Up</a>
+              <a class="dropdown-item" href="{% url 'login' %}">Log In</a>
+              {% endif %}
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+      </div>
     </div>
+  </nav>
+  <div class="container tagline">
+    Python User Group Website with Django & Wagtail
   </div>
-</nav>
-<div class="container tagline">
-  Python User Group Website with Django & Wagtail
-</div>
 </header>
