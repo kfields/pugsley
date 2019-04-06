@@ -144,7 +144,7 @@ SITE_ID = 1
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 
-SOCIALACCOUNT_ADAPTER = 'users.CustomSocialAccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'users.models.CustomSocialAccountAdapter'
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
