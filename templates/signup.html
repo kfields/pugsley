@@ -1,6 +1,7 @@
+{% extends "base.html" %}
+{% load i18n static crispy_forms_tags %}
+
+{% block content %}
 <h2>Sign up</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Sign up</button>
-</form>
+{% crispy form form.helper %}
+{% endblock %}

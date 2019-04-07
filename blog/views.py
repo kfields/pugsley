@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
+from users.models import CustomUser as User
 from .models import Post
-from .forms import ContactForm
+from .forms import ContactForm, ProfileEditForm
 
 def index(request):
     posts = Post.objects.filter(last_published_at__lte=timezone.now()).order_by('last_published_at')
@@ -25,7 +26,11 @@ def post(request, slug):
     post = get_object_or_404(Post, slug=slug)
     return render(request, 'blog/post.html', {'post': post})
 
-def user(request, username):
-    user = get_object_or_404(User, username=username)
-    posts = Post.objects.filter(owner=user)
-    return render(request, 'blog/user.html', {'user': user, 'posts': posts})
+def profile(request, username):
+    profile = get_object_or_404(User, username=username)
+    posts = Post.objects.filter(owner=profile)
+    return render(request, 'blog/profile.html', {'profile': profile, 'posts': posts})
+
+def profile_edit(request, username):
+    profile = get_object_or_404(User, username=username)
+    return render(request, 'blog/profile_edit.html', {'profile': profile, 'form': ProfileEditForm})
