@@ -5,6 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
+    "freeze": "pip freeze | grep -v 'pkg-resources' > requirements.txt",
+    "createsuper": "python manage.py createsuperuser",
+    "makemigrations": "python manage.py makemigrations",
+    "migrate": "python manage.py migrate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
