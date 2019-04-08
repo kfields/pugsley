@@ -151,7 +151,7 @@ ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_UNIQUE_EMAIL = True
 
-SOCIALACCOUNT_ADAPTER = 'users.models.SocialAccountAdapter'
+#SOCIALACCOUNT_ADAPTER = 'users.models.SocialAccountAdapter'
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
