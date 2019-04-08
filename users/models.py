@@ -1,19 +1,20 @@
-from django.contrib.auth.models import AbstractUser, UserManager
+from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import UserManager as UserManagerBase
 
 from allauth.exceptions import ImmediateHttpResponse
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 
-class CustomUserManager(UserManager):
+class UserManager(UserManagerBase):
     pass
 
-class CustomUser(AbstractUser):
-    objects = CustomUserManager()
+class User(AbstractUser):
+    objects = UserManager()
 
-class CustomSocialAccountAdapter(DefaultSocialAccountAdapter):
+class SocialAccountAdapter(DefaultSocialAccountAdapter):
     def pre_social_login(self, request, sociallogin):
         # This isn't tested, but should work
         try:
-            user = CustomUser.objects.get(email=sociallogin.email)
+            user = User.objects.get(email=sociallogin.email)
             sociallogin.connect(request, user)
             # Create a response object
             raise ImmediateHttpResponse(response)

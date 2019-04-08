@@ -1,0 +1,27 @@
+[
+  {
+    "model": "wagtailcore.page",
+    "pk": 3,
+    "fields": {
+      "title": "My Customer's Homepage",
+      "content_type": ["website", "homepage"],
+      "depth": 2
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 3,
+    "fields": {
+      
+    }
+  },
+  {
+    "model": "wagtailcore.site",
+    "pk": 1,
+    "fields": {
+      "site_name": "Pugsley",
+      "is_default_site": true,
+      "root_page": 3
+    }
+  }
+]

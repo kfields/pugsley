@@ -3,11 +3,11 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm, Authenti
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Field, Submit
 
-from .models import CustomUser
+from .models import User
 
-class CustomUserCreationForm(UserCreationForm):
+class UserCreationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
-        super(CustomUserCreationForm, self).__init__(*args, **kwargs)
+        super(UserCreationForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_id = 'id-exampleForm'
         self.helper.form_class = 'blueForms'
@@ -15,12 +15,12 @@ class CustomUserCreationForm(UserCreationForm):
         self.helper.add_input(Submit('submit', 'Submit'))
 
     class Meta(UserCreationForm):
-        model = CustomUser
+        model = User
         fields = ('username', 'email')
 
-class CustomUserChangeForm(UserChangeForm):
+class UserChangeForm(UserChangeForm):
     class Meta:
-        model = CustomUser
+        model = User
         fields = UserChangeForm.Meta.fields
 
 class LoginForm(AuthenticationForm):

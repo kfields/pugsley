@@ -10,7 +10,7 @@
 
     <div class="postcard-intro">
         by
-        <a href="{% url 'user' username=post.owner.username %}">
+        <a href="{% url 'profile' username=post.owner.username %}">
             {{ post.owner.get_full_name }}
         </a>
         &middot; 
