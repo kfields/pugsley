@@ -12,11 +12,13 @@
         </div>
     </div>
     <div class="col-12 col-md-4">
+        {% comment %}
         {% if profile == user %}
         <div class="btn-group" role="group" aria-label="Basic example">
             <a class="btn btn-secondary" href="/profiles/{{profile.username}}/edit">{{ _('Edit your profile') }}</a>
         </div>
         {% endif %}
+        {% endcomment %}
     </div>
 </div>
 
