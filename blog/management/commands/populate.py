@@ -3,7 +3,7 @@ from django.core.management.base import BaseCommand
 from django.contrib.sites.models import Site
 from django.conf import settings
 
-from users.models import User
+from myaccount.models import User
 from blog.models import Post
 
 class Command(BaseCommand):

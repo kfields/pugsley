@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 # from django.contrib.auth.models import User
-from users.models import User
+from myaccount.models import User
 from .models import Post
 from .forms import ContactForm, ProfileEditForm
 

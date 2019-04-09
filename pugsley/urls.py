@@ -12,10 +12,9 @@ urlpatterns = [
     re_path(r'^documents/', include(wagtaildocs_urls)),
     re_path(r'^pages/', include(wagtail_urls)),
 
-    path('users/', include('users.urls')),
-    path('users/', include('django.contrib.auth.urls')),
-
-    path('accounts/', include('allauth.urls')),
+    path('myaccount/', include('myaccount.urls')),
+    path('myaccount/', include('django.contrib.auth.urls')),
+    path('myaccount/', include('allauth.urls')),
     
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),

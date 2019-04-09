@@ -63,7 +63,7 @@ INSTALLED_APPS = [
     'schedule',
     'crispy_forms',
 
-    'users',
+    'myaccount',
     'blog',
 ]
 
@@ -116,7 +116,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'myaccount.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -151,7 +151,7 @@ ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_UNIQUE_EMAIL = True
 
-#SOCIALACCOUNT_ADAPTER = 'users.models.SocialAccountAdapter'
+#SOCIALACCOUNT_ADAPTER = 'myaccount.models.SocialAccountAdapter'
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
