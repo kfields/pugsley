@@ -13,9 +13,6 @@ def blog(request):
     posts = Post.objects.filter(last_published_at__lte=timezone.now()).order_by('last_published_at')
     return render(request, 'blog/blog.html', {'posts': posts})
 
-def calendar(request):
-    return render(request, 'blog/calendar.html')
-
 def about(request):
     return render(request, 'blog/about.html')
 

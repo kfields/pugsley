@@ -60,11 +60,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 
     'avatar',
-    'schedule',
     'crispy_forms',
 
     'myaccount',
     'blog',
+    'schedule',
 ]
 
 MIDDLEWARE = [
