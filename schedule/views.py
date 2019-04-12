@@ -9,67 +9,29 @@ def api_events(request):
       {
         "title": "EMPUG Monthly",
         "url": "https://www.meetup.com/empugdotorg/",
-        "start": "2019-03-16T13:00:00"
-      },
-      {
-        "title": "EMPUG Monthly",
-        "url": "https://www.meetup.com/empugdotorg/",
-        "start": "2019-04-20T13:00:00"
-      },
+        'rrule': {
+          'freq': 'monthly',
+          'byweekday': [ 'sa' ],
+          'bysetpos': [3],
+          'dtstart': '2019-04-20T13:00:00',
+        },
 
-      {
-        "title": "EMPUG Monthly",
-        "url": "https://www.meetup.com/empugdotorg/",
-        "start": "2019-05-18T13:00:00"
-      },
-      {
-        "title": "EMPUG Monthly",
-        "url": "https://www.meetup.com/empugdotorg/",
-        "start": "2019-06-15T13:00:00"
-      },
-      {
-        "title": "EMPUG Monthly",
-        "url": "https://www.meetup.com/empugdotorg/",
-        "start": "2019-07-20T13:00:00"
-      },
-      {
-        "title": "EMPUG Monthly",
-        "url": "https://www.meetup.com/empugdotorg/",
-        "start": "2019-08-17T13:00:00"
-      },
-      {
-        "title": "EMPUG Monthly",
-        "url": "https://www.meetup.com/empugdotorg/",
-        "start": "2019-09-21T13:00:00"
-      },
-        {
-        "title": "EMPUG Monthly",
-        "url": "https://www.meetup.com/empugdotorg/",
-        "start": "2019-10-19T13:00:00"
-      },
-        {
-        "title": "EMPUG Monthly",
-        "url": "https://www.meetup.com/empugdotorg/",
-        "start": "2019-11-16T13:00:00"
-      },
-      {
-        "title": "EMPUG Monthly",
-        "url": "https://www.meetup.com/empugdotorg/",
-        "start": "2019-21-16T13:00:00"
+        # for specifying the end time of each instance
+        'duration': '02:00'
       },
       {
         "title": "Christmas",
-        "backgroundColor": "red",
+        "backgroundColor": "#00FFFF",
         "start": "2019-12-25"
       },
       {
         "title": "Spring",
-        "backgroundColor": "red",
+        "backgroundColor": "white",
         "start": "2019-03-20"
       },
       {
         "title": "Summer",
-        "backgroundColor": "red",
+        "backgroundColor": "white",
         "start": "2019-06-21"
       },
       {
