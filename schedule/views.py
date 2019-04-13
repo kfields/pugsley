@@ -21,22 +21,22 @@ def api_events(request):
       },
       {
         "title": "Christmas",
-        "backgroundColor": "#00FFFF",
+        "className": "fc-holiday",
         "start": "2019-12-25"
       },
       {
         "title": "Spring",
-        "backgroundColor": "white",
+        "className": "fc-holiday",
         "start": "2019-03-20"
       },
       {
         "title": "Summer",
-        "backgroundColor": "white",
+        "className": "fc-holiday",
         "start": "2019-06-21"
       },
       {
         "title": "Independence Day",
-        "backgroundColor": "red",
+        "className": "fc-holiday",
         "start": "2019-07-04"
       }
     ]

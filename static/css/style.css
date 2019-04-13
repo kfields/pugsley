@@ -8,13 +8,14 @@ body {
   display: flex;
   flex-direction: column;
 }
-
+/*
 .wrapper {
   flex: 1 0 auto;
 }
-
+*/
 .site-footer {
-  flex-shrink: 0;
+  margin-top: 1rem;
+  /* flex-shrink: 0; */
 }
 
 body {
