@@ -61,10 +61,12 @@ INSTALLED_APPS = [
 
     'avatar',
     'crispy_forms',
+    'graphene_django',
 
     'myaccount',
     'blog',
     'schedule',
+    'gql',
 ]
 
 MIDDLEWARE = [
@@ -182,6 +184,10 @@ WAGTAIL_SITE_NAME = 'Pugsley'
 HOSTNAME = 'pugsley.herokuapp.com'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+GRAPHENE = {
+    'SCHEMA': 'pugsley.schema.schema'
+}
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

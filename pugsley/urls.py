@@ -20,5 +20,6 @@ urlpatterns = [
     path('', include('blog.urls')),
     path('avatar/', include('avatar.urls')),
     path('schedule/', include('schedule.urls')),
+    path('graphql/', include('gql.urls')),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
