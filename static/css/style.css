@@ -7,6 +7,8 @@ body {
 body {
   display: flex;
   flex-direction: column;
+  /*font-size: calc(18px + .25vw);*/
+  background-color: #eeeeee;
 }
 /*
 .wrapper {
@@ -16,11 +18,6 @@ body {
 .site-footer {
   margin-top: 1rem;
   /* flex-shrink: 0; */
-}
-
-body {
-  /*font-size: calc(18px + .25vw);*/
-  background-color: #eeeeee;
 }
 
 a {
@@ -34,25 +31,23 @@ a:hover {
   color: #fab526 !important;
 }
 
-h2 {
-  display: block;
-  font-size: 1.5em;
-  margin-block-start: 0.83em;
-  /*margin-block-end: 0.83em;*/
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
   font-weight: bold;
-}
 
-h3 {
-  display: block;
-  font-size: 1.2em;
-  margin-block-start: 0.83em;
-  margin-block-end: 0.83em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
 }
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.75rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 { font-size: 1.12em; }
+h5 { font-size: .83em; }
+h6 { font-size: .75em; }
 
 .site-header {
   background: url(/static/img/site-header.jpg) no-repeat scroll top;
