@@ -187,7 +187,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # TODO:  This needs to go into .env
-WAGTAIL_SITE_NAME = 'Pugsley'
+WAGTAIL_SITE_NAME = 'pugsley'
 HOSTNAME = 'pugsley.herokuapp.com'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
