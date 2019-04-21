@@ -8,6 +8,7 @@ Django==2.1.8
 django-allauth==0.39.1
 django-appconf==1.0.3
 django-avatar==4.1.0
+django-cors-headers==2.5.2
 django-crispy-forms==1.7.2
 django-filter==2.1.0
 django-heroku==0.3.1
@@ -27,7 +28,7 @@ idna==2.8
 oauthlib==3.0.1
 Pillow==5.4.1
 promise==2.2.1
-psycopg2==2.7.7
+psycopg2-binary==2.8.2
 python-dateutil==2.8.0
 python3-openid==3.1.0
 pytz==2018.9

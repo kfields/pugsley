@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'avatar',
     'crispy_forms',
     'graphene_django',
+    'corsheaders',
 
     'myaccount',
     'blog',
@@ -72,6 +73,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -81,6 +83,11 @@ MIDDLEWARE = [
     'wagtail.core.middleware.SiteMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
+
+CORS_ORIGIN_WHITELIST = (
+    'pugsleymc.herokuapp.com',
+    'localhost:8080'
+)
 
 ROOT_URLCONF = 'pugsley.urls'
 

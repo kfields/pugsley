@@ -1,3 +1,4 @@
+import graphene
 from graphene import relay, ObjectType
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
@@ -13,3 +14,27 @@ class PostNode(DjangoObjectType):
 class Query(object):
     post = relay.Node.Field(PostNode)
     all_posts = DjangoFilterConnectionField(PostNode)
+
+class UpdatePost(graphene.Mutation):
+    class Arguments:
+        id = graphene.ID(required=True)
+        title = graphene.String()
+        body = graphene.String()
+
+    ok = graphene.Boolean()
+
+    def mutate(self, info, id, title, body):
+        print('mutate')
+        print(id)
+        # post = Post.query.get(id)
+        post = graphene.Node.get_node_from_global_id(info, id)
+        print(post)
+        post.title = title
+        post.body = body
+        post.save()
+        ok = True
+
+        return ok
+
+class Mutation(graphene.ObjectType):
+    update_post = UpdatePost.Field()
