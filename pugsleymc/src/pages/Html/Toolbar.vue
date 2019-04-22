@@ -8,148 +8,150 @@
     >
       <q-icon name="mdi-chevron-left" />
     </q-btn>
-    <q-btn
-      flat
-      dense
-      round
-      @click="$router.push('/text')"
-    >
-      <q-icon name="mdi-language-html5" />
-    </q-btn>
+
     <editor-menu-bar :editor="editor">
       <div class="menubar" slot-scope="{ commands, isActive }">
 
-        <button
+        <q-btn
           class="menubar__button"
           :class="{ 'is-active': isActive.bold() }"
           @click="commands.bold"
         >
           <q-icon name="mdi-format-bold" />
-        </button>
+        </q-btn>
 
-        <button
+        <q-btn
           class="menubar__button"
           :class="{ 'is-active': isActive.italic() }"
           @click="commands.italic"
         >
           <q-icon name="mdi-format-italic" />
-        </button>
+        </q-btn>
 
-        <button
+        <q-btn
           class="menubar__button"
           :class="{ 'is-active': isActive.strike() }"
           @click="commands.strike"
         >
           <q-icon name="mdi-format-strikethrough" />
-        </button>
+        </q-btn>
 
-        <button
+        <q-btn
           class="menubar__button"
           :class="{ 'is-active': isActive.underline() }"
           @click="commands.underline"
         >
           <q-icon name="mdi-format-underline" />
-        </button>
+        </q-btn>
 
-        <button
+        <q-btn
           class="menubar__button"
           :class="{ 'is-active': isActive.code() }"
           @click="commands.code"
         >
           <q-icon name="mdi-code-tags" />
-        </button>
+        </q-btn>
 
-        <button
+        <q-btn
           class="menubar__button"
           :class="{ 'is-active': isActive.paragraph() }"
           @click="commands.paragraph"
         >
           <q-icon name="mdi-format-paragraph" />
-        </button>
+        </q-btn>
 
-        <button
+        <q-btn
           class="menubar__button"
           :class="{ 'is-active': isActive.heading({ level: 1 }) }"
           @click="commands.heading({ level: 1 })"
         >
           H1
-        </button>
+        </q-btn>
 
-        <button
+        <q-btn
           class="menubar__button"
           :class="{ 'is-active': isActive.heading({ level: 2 }) }"
           @click="commands.heading({ level: 2 })"
         >
           H2
-        </button>
+        </q-btn>
 
-        <button
+        <q-btn
           class="menubar__button"
           :class="{ 'is-active': isActive.heading({ level: 3 }) }"
           @click="commands.heading({ level: 3 })"
         >
           H3
-        </button>
+        </q-btn>
 
-        <button
+        <q-btn
           class="menubar__button"
           :class="{ 'is-active': isActive.bullet_list() }"
           @click="commands.bullet_list"
         >
           <q-icon name="mdi-format-list-bulleted" />
-        </button>
+        </q-btn>
 
-        <button
+        <q-btn
           class="menubar__button"
           :class="{ 'is-active': isActive.ordered_list() }"
           @click="commands.ordered_list"
         >
           <q-icon name="mdi-format-list-numbered" />
-        </button>
+        </q-btn>
 
-        <button
+        <q-btn
           class="menubar__button"
           :class="{ 'is-active': isActive.blockquote() }"
           @click="commands.blockquote"
         >
           <q-icon name="mdi-format-quote-close" />
-        </button>
+        </q-btn>
 
-        <button
+        <q-btn
           class="menubar__button"
           :class="{ 'is-active': isActive.code_block() }"
           @click="commands.code_block"
         >
           <q-icon name="mdi-code-not-equal-variant" />
-        </button>
+        </q-btn>
 
-        <button
+        <q-btn
           class="menubar__button"
           @click="commands.horizontal_rule"
         >
           <q-icon name="mdi-minus" />
-        </button>
+        </q-btn>
 
-        <button
+        <q-btn
           class="menubar__button"
           @click="showImagePrompt(commands.image)"
         >
           <q-icon name="mdi-image" />
-        </button>
+        </q-btn>
 
-        <button
+        <q-btn
           class="menubar__button"
           @click="commands.undo"
         >
           <q-icon name="mdi-undo" />
-        </button>
+        </q-btn>
 
-        <button
+        <q-btn
           class="menubar__button"
           @click="commands.redo"
         >
           <q-icon name="mdi-redo" />
-        </button>
+        </q-btn>
+
+        <q-btn
+          flat
+          dense
+          round
+          @click="$router.push('/text')"
+        >
+          <q-icon name="mdi-language-html5" />
+        </q-btn>
 
       </div>
     </editor-menu-bar>
