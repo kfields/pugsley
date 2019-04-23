@@ -85,7 +85,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = (
-    'pugsleymc.herokuapp.com',
+    'pugsleymc.netlify.com',
     'localhost:8080'
 )
 
