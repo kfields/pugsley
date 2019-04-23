@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "newenv": "python3 -m venv env",
-    "install": "pip install -r requirements.txt",
-    "build": "webpack",
+    "pyinstall": "pip install -r requirements.txt",
+    "jsbuild": "webpack",
     "freeze": "pip freeze | grep -v 'pkg-resources' > requirements.txt",
     "createsuper": "python manage.py createsuperuser",
     "makemigrations": "python manage.py makemigrations",
