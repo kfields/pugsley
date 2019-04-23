@@ -85,6 +85,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = (
+    'mc.pugsley.kfields.me',
     'pugsleymc.netlify.com',
     'localhost:8080'
 )
