@@ -1,3 +1,5 @@
+import socket
+
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf import settings
@@ -23,6 +25,6 @@ urlpatterns = [
     path('schedule/', include('schedule.urls')),
     path('graphql/', include('gql.urls')),
 
-    path('mc/', RedirectView.as_view(url='/static/mc/index.html'), name='mc'),
+    path('mc/', RedirectView.as_view(url='mc.' + socket.getfqdn()), name='mc'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
