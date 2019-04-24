@@ -19,17 +19,19 @@ class UpdatePost(graphene.Mutation):
     class Arguments:
         id = graphene.ID(required=True)
         title = graphene.String()
+        summary = graphene.String()
         body = graphene.String()
 
     ok = graphene.Boolean()
 
-    def mutate(self, info, id, title, body):
+    def mutate(self, info, id, title, summary, body):
         print('mutate')
         print(id)
         # post = Post.query.get(id)
         post = graphene.Node.get_node_from_global_id(info, id)
         print(post)
         post.title = title
+        post.summary = summary
         post.body = body
         post.save()
         ok = True

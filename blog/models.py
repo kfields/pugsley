@@ -9,6 +9,7 @@ from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.search import index
 
 class Post(Page):
+    summary = models.TextField(blank=True)
     body = RichTextField(blank=True)
 
     search_fields = Page.search_fields + [
