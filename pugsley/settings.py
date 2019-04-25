@@ -20,14 +20,69 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'sl6sjsv=f%izeij91!t5tcu9p-bs%%(*a35bqj1p^8-xvbqz7v'
+# We should get this from the environment, never store them in git.
+SECRET_KEY = os.environ.get("SECRET_KEY", 'secret')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Set DEBUG to False if the NODEBUG env var has been set.
+DEBUG = True if os.environ.get("NODEBUG") is None else False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+# Set the allowed hosts based on the environment.
+ALLOWED_HOSTS = ["web", "localhost"] if os.environ.get("NODEBUG") is None else ["pugsley.kfields.me"]
 
+if os.environ.get("IN_DOCKER"):
+    # Stuff for when running in Docker-compose.
+
+    CELERY_BROKER_URL = 'redis://redis:6379/1'
+    CELERY_RESULT_BACKEND = 'redis://redis:6379/1'
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': "postgres",
+            'USER': 'postgres',
+            'PASSWORD': 'password',
+            'HOST': "db",
+            'PORT': 5432,
+        }
+    }
+elif os.environ.get("DATABASE_URL"):
+    # Stuff for when running in Dokku.
+
+    # Parse the DATABASE_URL env var.
+    USER, PASSWORD, HOST, PORT, NAME = re.match("^postgres://(?P<username>.*?)\:(?P<password>.*?)\@(?P<host>.*?)\:(?P<port>\d+)\/(?P<db>.*?)$", os.environ.get("DATABASE_URL", "")).groups()
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': NAME,
+            'USER': USER,
+            'PASSWORD': PASSWORD,
+            'HOST': HOST,
+            'PORT': int(PORT),
+        }
+    }
+
+    CELERY_BROKER_URL = os.environ.get("REDIS_URL", "") + "/1"
+    CELERY_RESULT_BACKEND = os.environ.get("REDIS_URL", "") + "/1"
+else:
+    # Stuff for when running locally.
+
+    CELERY_TASK_ALWAYS_EAGER = True
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+         }
+     }
+# Database
+# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 # Application definition
 
@@ -58,6 +113,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+
+    'rest_framework',
 
     'avatar',
     'crispy_forms',
@@ -110,17 +167,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pugsley.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 LOGIN_REDIRECT_URL = 'index'
@@ -150,6 +196,17 @@ AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
 
 SITE_ID = 1
 
