@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 import re
+import dj_database_url
 import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -49,18 +50,8 @@ if os.environ.get("IN_DOCKER"):
 elif os.environ.get("DATABASE_URL"):
     # Stuff for when running in Dokku.
 
-    # Parse the DATABASE_URL env var.
-    USER, PASSWORD, HOST, PORT, NAME = re.match("^postgres://(?P<username>.*?)\:(?P<password>.*?)\@(?P<host>.*?)\:(?P<port>\d+)\/(?P<db>.*?)$", os.environ.get("DATABASE_URL", "")).groups()
-
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': NAME,
-            'USER': USER,
-            'PASSWORD': PASSWORD,
-            'HOST': HOST,
-            'PORT': int(PORT),
-        }
+        'default': dj_database_url.config()
     }
 
     CELERY_BROKER_URL = os.environ.get("REDIS_URL", "") + "/1"
@@ -73,8 +64,20 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-         }
-     }
+        }
+    }
+    '''
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'dbname',
+            'USER': 'dbuser',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+            'PASSWORD': 'yourdbpass',
+        }
+    }
+    '''
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
@@ -83,6 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+
 }
 
 # Application definition
