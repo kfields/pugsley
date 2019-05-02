@@ -12,7 +12,8 @@
     "makemigrations": "python manage.py makemigrations",
     "migrate": "python manage.py migrate",
     "dump": "python manage.py dumpdata --indent 2 > dump.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "git push dokku master"
   },
   "repository": {
     "type": "git",
