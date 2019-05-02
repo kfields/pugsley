@@ -248,11 +248,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'storage/media')
 
 # TODO:  This needs to go into .env
 WAGTAIL_SITE_NAME = 'pugsley'
-HOSTNAME = 'pugsley.herokuapp.com'
+HOSTNAME = 'pugsley.kfields.me'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
