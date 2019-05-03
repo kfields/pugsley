@@ -49,16 +49,15 @@ if os.environ.get("IN_DOCKER"):
     }
 elif os.environ.get("DATABASE_URL"):
     # Stuff for when running in Dokku.
-
+    MEDIA_ROOT = '/storage/media'
     DATABASES = {
         'default': dj_database_url.config()
     }
-
     CELERY_BROKER_URL = os.environ.get("REDIS_URL", "") + "/1"
     CELERY_RESULT_BACKEND = os.environ.get("REDIS_URL", "") + "/1"
 else:
     # Stuff for when running locally.
-
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'storage/media')
     CELERY_TASK_ALWAYS_EAGER = True
     DATABASES = {
         'default': {
@@ -78,16 +77,6 @@ else:
         }
     }
     '''
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-
-}
 
 # Application definition
 
@@ -248,7 +237,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'storage/media')
 
 # TODO:  This needs to go into .env
 WAGTAIL_SITE_NAME = 'pugsley'
