@@ -17,6 +17,7 @@ class Post(Page):
     ]
 
     content_panels = Page.content_panels + [
+        FieldPanel('summary', classname="full"),
         FieldPanel('body', classname="full"),
     ]
 
