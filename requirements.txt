@@ -28,7 +28,7 @@ html5lib==1.0.1
 icalendar==4.0.3
 idna==2.8
 oauthlib==3.0.1
-Pillow==5.4.1
+Pillow==6.2.0
 promise==2.2.1
 psycopg2==2.8.2
 psycopg2-binary==2.8.2
