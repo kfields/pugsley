@@ -16,7 +16,7 @@ django-heroku==0.3.1
 django-modelcluster==4.4
 django-taggit==0.24.0
 django-treebeard==4.3
-djangorestframework==3.9.3
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 draftjs-exporter==2.1.5
 graphene==2.1.3
